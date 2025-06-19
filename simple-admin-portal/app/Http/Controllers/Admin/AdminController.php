@@ -44,10 +44,10 @@ class AdminController extends Controller
 
        if ($type === 'customer') {
            Customer::create($validated);
-           return redirect()->route('admin.customers.index')->with('success', 'Customer created successfully');
+           return redirect()->route('admin.data.index','customer')->with('success', 'Customer created successfully');
        } else {
            Invoice::create($validated);
-           return redirect()->route('admin.invoices.index')->with('success', 'Invoice created successfully');
+           return redirect()->route('admin.data.index','invoice')->with('success', 'Invoice created successfully');
        }
    }
 
@@ -148,12 +148,12 @@ class AdminController extends Controller
         if ($type === 'customer') {
             $customer = Customer::findOrFail($id);
             $customer->update($validated);
-            return redirect()->route('admin.customers.index')
+            return redirect()->route('admin.data.index','customer')
                 ->with('success', 'Customer updated successfully');
         } else {
             $invoice = Invoice::findOrFail($id);
             $invoice->update($validated);
-            return redirect()->route('admin.invoices.index')
+            return redirect()->route('admin.data.index','invoice')
                 ->with('success', 'Invoice updated successfully');
         }
     }
