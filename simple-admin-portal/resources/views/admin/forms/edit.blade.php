@@ -14,7 +14,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('admin.'.$type.'s.index') }}">
+                    <a href="{{ route('admin.data.index', ['type' => $type]) }}">
                         {{ ucfirst($type).'s' }}
                     </a>
                 </li>
@@ -95,7 +95,7 @@
                         @endif
             
                         <button type="submit" class="btn btn-primary">Update {{ ucfirst($type) }}</button>
-                        <a href="{{ route('admin.'.$type.'s.index') }}" class="btn btn-secondary">Cancel</a>
+                        <a href="{{ route('admin.data.index', ['type' => $type]) }}" class="btn btn-secondary">Cancel</a>
                     </form>
                 </div>
             </div>
